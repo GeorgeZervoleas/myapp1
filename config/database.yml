@@ -20,12 +20,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: panosk
 
 development:
   <<: *default
   database: myapp1_development
-  username: myapp1
-  password: kod123
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -60,8 +60,6 @@ development:
 test:
   <<: *default
   database: myapp1_test
-  username: myapp1
-  password: kod123
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,5 +83,3 @@ test:
 production:
   <<: *default
   database: myapp1_production
-  username: myapp1
-  password: kod123
