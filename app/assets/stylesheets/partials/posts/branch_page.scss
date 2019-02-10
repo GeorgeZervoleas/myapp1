@@ -83,7 +83,9 @@
     color: white;
   }
 }
-
+.infinite-scroll {
+  display: none;
+}
 #branch-main-content {
   background: white;
   height: calc(100vh - 50px);
