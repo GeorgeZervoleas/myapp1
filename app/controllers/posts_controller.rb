@@ -33,7 +33,9 @@ class PostsController < ApplicationController
     posts_for_branch(params[:action])
   end
   private
-
+  def conversation_exist?
+    Private::Conversation.between_users(current_user.id, @post.user.id).present?
+  end
     def post_params
       params.require(:post).permit(:content, :title, :category_id)
                          .merge(user_id: current_user.id)
@@ -53,8 +55,6 @@ class PostsController < ApplicationController
         branch: params[:action]
       }).call
     end
-    def conversation_exist?
-      Private::Conversation.between_users(current_user.id, @post.user.id).present?
-    end
+    
 
 end
