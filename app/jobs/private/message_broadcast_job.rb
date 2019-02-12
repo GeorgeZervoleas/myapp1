@@ -38,7 +38,4 @@ class Private::MessageBroadcastJob < ApplicationJob
                 user: user }
     )
   end
-
-
-
 end
