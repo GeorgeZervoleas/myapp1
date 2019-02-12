@@ -9,6 +9,9 @@ scope :between_users, -> (user1_id, user2_id) do
   where(sender_id: user1_id, recipient_id: user2_id).or(
     where(sender_id: user2_id, recipient_id: user1_id)
   )
+scope :all_by_user, -> (user_id) do
+  where(recipient_id: user_id).or(where(sender_id: user_id))
+end
 end
 def opposed_user(user)
   user == recipient ? sender : recipient
