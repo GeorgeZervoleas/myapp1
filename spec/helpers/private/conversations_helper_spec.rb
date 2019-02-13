@@ -153,6 +153,10 @@ RSpec.describe Private::ConversationsHelper, type: :helper do
   end
 
   context 'private scope' do
+    let(:current_user) { create(:user) }
+    let(:recipient) { create(:user) }
+
+
     context '#unaccepted_contact_exists' do
       it 'returns false' do
         contact = create(:contact, accepted: true)
