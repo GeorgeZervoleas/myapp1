@@ -10,4 +10,5 @@ class Contact < ApplicationRecord
 	        )[0]
 	end
 
+	after_create_commit { ContactRequestBroadcastJob.perform_later(self) }
 end
