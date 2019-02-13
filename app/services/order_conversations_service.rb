@@ -4,7 +4,7 @@ class OrderConversationsService
     @user = params[:user]
   end
 
-  # get and order conversations by last messages' dates in descending order
+   #get and order conversations by last messages' dates in descending order
   def call
     all_private_conversations = Private::Conversation.all_by_user(@user.id)
                                                      .includes(:messages)
