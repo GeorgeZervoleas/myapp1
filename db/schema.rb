@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_223400) do
+ActiveRecord::Schema.define(version: 2019_02_13_014452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,27 @@ ActiveRecord::Schema.define(version: 2019_02_10_223400) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "branch"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "contact_id"
+    t.boolean "accepted", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contact_id"], name: "index_contacts_on_contact_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "group_conversations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "group_messages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
