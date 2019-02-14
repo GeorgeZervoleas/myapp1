@@ -1,7 +1,6 @@
 require 'rails_helper'
 require './app/services/order_conversations_service.rb'
 
-
 describe OrderConversationsService do
   context '#call' do
     it 'returns ordered conversations in descending order' do
