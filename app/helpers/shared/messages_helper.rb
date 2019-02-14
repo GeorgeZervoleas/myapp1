@@ -1,4 +1,10 @@
+module Shared::MessagesHelper
 
+  def append_previous_messages_partial_path
+    'shared/load_more_messages/window/append_messages' 
+  end
+
+end
 # in the messenger load previous messages until the scroll bar appears
 def autoload_messenger_messages
   if @is_messenger == 'true'
@@ -21,4 +27,16 @@ def append_previous_messages_partial_path
   else 
     'shared/load_more_messages/window/append_messages' 
   end 
+
+def remove_link_to_messages
+  if @is_messenger == 'false'
+    if @messages_to_display_offset != 0
+      'shared/empty_partial'
+    else
+      'shared/load_more_messages/window/remove_more_messages_link' 
+    end
+  else
+    'shared/empty_partial'
+  end
+end 
 end
